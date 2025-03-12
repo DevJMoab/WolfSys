@@ -1,0 +1,71 @@
+.footer {
+  display: none; /* Esconde o footer por padrão */
+  justify-content: space-around;
+  align-items: center;
+  background-color: #02f82b;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Exibe o footer apenas em telas menores que 1000px */
+@media (max-width: 1000px) {
+  .footer {
+    display: flex;
+  }
+}
+
+/* Estilos para os itens do footer */
+.footer .theme-toggle,
+.footer .notification-icon,
+.footer .user-menu {
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.footer .notification-icon {
+  position: relative;
+}
+
+.footer .notification-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: red;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 50%;
+}
+
+.footer .user-menu {
+  display: flex;
+  align-items: center;
+}
+
+.footer .user-avatar img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.footer .user-info {
+  margin-left: 10px;
+}
+
+.footer .user-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #314266;
+}
+
+.footer .user-role {
+  font-size: 12px;
+  color: #888;
+}

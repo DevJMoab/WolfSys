@@ -1,0 +1,210 @@
+:root {
+  --header-bg: #fff;
+  --header-text: #314266;
+  --header-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  --search-bg: #f0f0f0;
+  --search-text: #314266;
+  --search-placeholder: #888;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: var(--header-bg);
+  box-shadow: var(--header-shadow);
+  transition: background-color 0.3s, color 0.3s;
+  z-index: 999; /* Garante que o Header fique abaixo do Sidebar */
+}
+
+.sidebar.collapsed ~ .header {
+  margin-left: 90px; /* Ajuste para o Sidebar recolhido */
+}
+
+/* Botão de Recolhimento e Nome do Menu Selecionado */
+.buttonSelectMenu {
+  display: flex;
+  align-items: center; /* Centraliza verticalmente */
+  gap: 10px; /* Espaço entre o botão e o nome do menu */
+}
+
+.sidebar-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.sidebar-toggle img {
+  transition: transform 0.3s ease;
+}
+
+/* Nome do Menu Selecionado */
+.selected-menu {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--header-text);
+  transition: font-size 0.3s ease;
+}
+
+/* Barra de Pesquisa */
+.search-bar {
+  display: flex;
+  align-items: center;
+  background-color: var(--search-bg);
+  border-radius: 25px; /* Bordas arredondadas */
+  padding: 8px 16px; /* Espaçamento interno */
+  width: 300px; /* Largura padrão */
+  transition: width 0.3s ease;
+}
+
+.search-bar input {
+  border: none;
+  background: transparent;
+  outline: none;
+  flex: 1;
+  font-size: 14px;
+  color: var(--search-text);
+}
+
+.search-bar input::placeholder {
+  color: var(--search-placeholder);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+}
+
+.search-icon {
+  font-size: 18px;
+  color: var(--header-text);
+  margin-left: 8px;
+}
+
+/* Botões de Tema, Notificações e Menu de Usuário */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.theme-toggle {
+  background: none; /* Remove o fundo */
+  border: none; /* Remove as bordas */
+  cursor: pointer;
+  padding: 0; /* Remove o padding */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.theme-toggle img,
+.notification-icon img,
+.user-menu-arrow {
+  filter: brightness(0) saturate(100%) invert(16%) sepia(23%) saturate(1233%) hue-rotate(194deg) brightness(93%) contrast(88%); /* Cor #314266 */
+}
+
+.notification-icon {
+  position: relative;
+  cursor: pointer; /* Cursor pointer para ícones de notificação */
+}
+
+.notification-badge {
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  background-color: red;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 50%;
+}
+
+.user-menu {
+  display: flex;
+  align-items: center;
+  cursor: pointer; /* Cursor pointer para o menu do usuário */
+}
+
+.user-avatar img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.user-info {
+  margin-left: 10px;
+}
+
+.user-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--header-text);
+}
+
+.user-role {
+  font-size: 12px;
+  color: #888;
+}
+
+.user-menu-arrow {
+  margin-left: 24px;
+  font-size: 8px;
+  color: var(--header-text);
+}
+
+.user-menu-popup,
+.notification-popup {
+  position: absolute;
+  background-color: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: var(--header-shadow);
+  padding: 10px;
+  z-index: 1000;
+}
+
+.user-menu-popup {
+  width: 180px;
+  top: 60px;
+  right: 20px;
+}
+
+.notification-popup {
+  width: 250px;
+  top: 25px;
+  right: 0;
+}
+
+.user-menu-popup ul,
+.notification-popup ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.user-menu-popup ul li,
+.notification-popup ul li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.user-menu-popup ul li:hover,
+.notification-popup ul li:hover {
+  background-color: #f0f0f0;
+}
+
+@media (max-width: 1000px) {
+  .header-right {
+    display: none;
+  }
+
+  .selected-menu {
+    font-size: 16px;
+  }
+
+  .search-bar {
+    width: 200px;
+  }
+}

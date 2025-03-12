@@ -1,0 +1,180 @@
+:root {
+  --sidebar-bg: #314266;
+  --sidebar-text: #ffffff;
+  --sidebar-hover-bg: #ffffff;
+  --sidebar-hover-text: #314266;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: var(--sidebar-bg);
+  color: var(--sidebar-text);
+  font-family: 'Poppins', sans-serif;
+  transition: width 0.5s ease;
+  height: 100vh;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000; /* Garante que o Sidebar fique acima do Header */
+}
+
+.sidebar.collapsed {
+  width: 90px;
+}
+
+/* Nome do Aplicativo, Logo e Versão */
+.app-header {
+  display: flex;
+  align-items: flex-end;
+  padding: 24px;
+  gap: 10px;
+}
+
+.app-logo img {
+  width: 56px;
+  height: auto;
+  transition: width 0.3s ease, margin-left 0.3s ease;
+}
+
+.sidebar.collapsed .app-logo img {
+  width: 40px;
+  margin-left: -3px;
+}
+
+.app-name {
+  font-size: 26px;
+  font-weight: 600;
+  color: var(--sidebar-text);
+  margin-bottom: -2px;
+  margin-left: -20px;
+}
+
+.app-version {
+  font-size: 10px;
+  font-weight: 500;
+  color: #d3d3d3;
+  margin-bottom: 8px;
+  margin-left: -6px;
+}
+
+/* Itens do Menu */
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+nav ul li {
+  padding: 18px 28px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  position: relative;
+  background-color: transparent;
+  color: var(--sidebar-text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sidebar.collapsed nav ul li {
+  justify-content: center; /* Centraliza os ícones quando recolhido */
+  padding: 18px 0; /* Reduz o padding lateral */
+}
+
+nav ul li img {
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(29deg) brightness(109%) contrast(101%);
+}
+
+/* Efeito de hover e seleção */
+nav ul li:hover,
+nav ul li.selected {
+  background-color: var(--sidebar-hover-bg);
+  color: var(--sidebar-hover-text);
+  border-radius: 25px 0 0 25px;
+  margin-left: 10px;
+}
+
+/* Efeito de bordas invertidas */
+nav ul li.inverted-border-radius:hover::before,
+nav ul li.inverted-border-radius.selected::before {
+  content: "";
+  position: absolute;
+  background-color: transparent;
+  top: -50px;
+  right: 0;
+  height: 50px;
+  width: 25px;
+  border-bottom-right-radius: 25px;
+  box-shadow: 0 25px 0 0 var(--sidebar-hover-bg);
+}
+
+nav ul li.inverted-border-radius:hover::after,
+nav ul li.inverted-border-radius.selected::after {
+  content: "";
+  position: absolute;
+  background-color: transparent;
+  top: 64px;
+  right: 0;
+  height: 50px;
+  width: 25px;
+  border-top-right-radius: 25px;
+  box-shadow: 0 -25px 0 0 var(--sidebar-hover-bg);
+}
+
+/* Ajuste para os ícones ao passar o mouse ou selecionar */
+nav ul li:hover img,
+nav ul li.selected img {
+  filter: brightness(0) saturate(100%) invert(16%) sepia(23%) saturate(1233%) hue-rotate(194deg) brightness(93%) contrast(88%);
+}
+
+/* Copyright */
+.copyright {
+  text-align: center;
+  font-size: 10px;
+  color: #d3d3d3;
+  margin-top: auto;
+  padding: 20px;
+}
+
+.copyright p {
+  margin: 5px 0;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 90px;
+  }
+
+  .sidebar.collapsed {
+    width: 60px;
+  }
+
+  .app-header {
+    padding: 16px;
+  }
+
+  .app-logo img {
+    width: 40px;
+  }
+
+  nav ul li {
+    padding: 12px 16px;
+    gap: 16px;
+  }
+
+  nav span {
+    color: transparent;
+  }
+  .selected-menu, .app-name {
+    visibility: hidden;
+  }
+}
+
+@media (max-width: 450px) {
+  .search-bar {
+    width: calc(185px + 3vw);
+  }
+  .selected-menu, .app-name {
+    visibility: hidden;
+  }
+}

@@ -1,0 +1,10 @@
+.main-content {
+    margin-left: 250px; /* Largura inicial do sidebar */
+    transition: margin-left 0.5s; /* Transição suave ao recolher/expandir */
+    padding: 20px;
+  }
+  
+  /* Quando o sidebar estiver recolhido */
+  .sidebar.collapsed ~ .main-content {
+    margin-left: 90px; /* Largura do sidebar recolhido */
+  }
