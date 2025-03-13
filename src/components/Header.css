@@ -208,3 +208,9 @@
     width: 200px;
   }
 }
+
+@media (max-width: 768px) {
+  .header{
+    left: 90px;
+  }
+}

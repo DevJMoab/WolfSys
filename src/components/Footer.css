@@ -1,40 +1,46 @@
+/* Footer.css */
 .footer {
-  display: none; /* Esconde o footer por padrão */
+  display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: #02f82b;
+  background-color: #02f82b; /* Cor de fundo do footer */
   padding: 10px;
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: 1000;
-  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000; /* Garante que o footer fique acima de outros elementos */
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Sombra no topo do footer */
 }
 
-/* Exibe o footer apenas em telas menores que 1000px */
-@media (max-width: 1000px) {
-  .footer {
-    display: flex;
-  }
+/* Botão de Tema */
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
 }
 
-/* Estilos para os itens do footer */
-.footer .theme-toggle,
-.footer .notification-icon,
-.footer .user-menu {
-  margin: 0 10px;
+.theme-toggle img {
+  filter: brightness(0) saturate(100%) invert(16%) sepia(23%) saturate(1233%) hue-rotate(194deg) brightness(93%) contrast(88%); /* Cor #314266 */
+}
+
+/* Ícones de Notificações */
+.notification-icon {
+  position: relative;
   cursor: pointer;
 }
 
-.footer .notification-icon {
-  position: relative;
+.notification-icon .icon {
+  font-size: 20px;
+  color: #314266;
+  filter: brightness(0) saturate(100%) invert(16%) sepia(23%) saturate(1233%) hue-rotate(194deg) brightness(93%) contrast(88%); /* Cor #314266 */
 }
 
-.footer .notification-badge {
+.notification-badge {
   position: absolute;
-  top: -8px;
-  right: -8px;
+  top: -12px;
+  right: -12px;
   background-color: red;
   color: white;
   font-size: 12px;
@@ -43,29 +49,43 @@
   border-radius: 50%;
 }
 
-.footer .user-menu {
+/* Popups no Footer */
+.footer-popup {
+  position: absolute;
+  background-color: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  z-index: 1000;
+  bottom: 50px; /* Abre para cima */
+}
+
+.footer-popup ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-popup ul li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.footer-popup ul li:hover {
+  background-color: #f0f0f0;
+}
+
+/* Menu de Usuário no Footer */
+.user-menu {
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
-.footer .user-avatar img {
-  width: 30px;
-  height: 30px;
+.user-avatar img {
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   object-fit: cover;
-}
-
-.footer .user-info {
-  margin-left: 10px;
-}
-
-.footer .user-name {
-  font-size: 14px;
-  font-weight: 600;
-  color: #314266;
-}
-
-.footer .user-role {
-  font-size: 12px;
-  color: #888;
 }

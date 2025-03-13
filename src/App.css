@@ -56,7 +56,7 @@
     margin-bottom: 10px;
   }
 
-  .header-right {
+  .header-right, .app-version {
     display: none; /* Esconde os itens do header */
   }
 
@@ -87,9 +87,9 @@
 }
 
 /* Responsividade para telas com altura menor que 900px */
-@media (max-height: 900px) {
+/*@media (max-height: 900px) {
   .sidebar {
-    overflow-y: auto; /* Adiciona barra de rolagem no Sidebar */
+    overflow-y: auto; /* Adiciona barra de rolagem no Sidebar
   }
 
   .header {
@@ -97,11 +97,10 @@
     top: 0;
     left: 250px;
     right: 0;
-    z-index: 999; /* Garante que o Header fique abaixo do Sidebar */
+    z-index: 999; /* Garante que o Header fique abaixo do Sidebar
   }
 
   .content {
-    margin-top: 65px; /* Compensa a altura fixa do Header */
+    margin-top: 65px; /* Compensa a altura fixa do Header
   }
-}
-
+}*/
