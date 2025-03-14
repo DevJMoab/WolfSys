@@ -113,6 +113,7 @@ const Header = ({
                 <ul>
                   <li>Novo e-mail 1</li>
                   <li>Novo e-mail 2</li>
+                  <li>Novo e-mail 3</li>
                 </ul>
               </div>
             )}

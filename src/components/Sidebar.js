@@ -1,13 +1,13 @@
-import React, { useState, useCallback } from 'react';
-import { menuItems } from './menuItems';
+import React, { useState } from 'react';
+import { menuItems } from './menuItems'; // Importe os itens do menu
 import './Sidebar.css';
 
 const Sidebar = ({ collapsed, toggleSidebar }) => {
-  const [selectedItem, setSelectedItem] = useState(null);
+  const [selectedItem, setSelectedItem] = useState(null); // Estado para o item selecionado
 
-  const handleItemClick = useCallback((index) => {
-    setSelectedItem(index);
-  }, []);
+  const handleItemClick = (index) => {
+    setSelectedItem(index); // Define o item selecionado
+  };
 
   return (
     <div className={`sidebar ${collapsed ? 'collapsed' : ''}`}>
@@ -24,20 +24,16 @@ const Sidebar = ({ collapsed, toggleSidebar }) => {
         )}
       </div>
 
-      {/* Menu */}
-      <nav role="navigation" aria-label="Menu principal">
+      <nav>
         <ul>
           {menuItems.map((item, index) => (
             <li
               key={index}
-              role="menuitem"
-              tabIndex={0}
               className={`inverted-border-radius ${selectedItem === index ? 'selected' : ''}`}
               onClick={() => handleItemClick(index)}
-              onKeyPress={(e) => e.key === 'Enter' && handleItemClick(index)}
             >
               <span><img width="24" height="24" src={item.icon} alt={item.label} /></span>
-              {!collapsed && <span>{item.label}</span>}
+              {!collapsed && <span className="menuItem">{item.label}</span>}
             </li>
           ))}
         </ul>

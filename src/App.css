@@ -34,7 +34,7 @@
 }
 
 /* Responsividade para telas menores que 1000px */
-@media (max-width: 1000px) {
+@media (max-width: 768px) {
   .content {
     margin-left: 90px; /* Largura do sidebar recolhido */
   }
@@ -64,7 +64,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: #02f82b;
+    background-color: #fff;
     padding: 10px;
     position: fixed;
     bottom: 0;
@@ -84,6 +84,7 @@
   .header {
     left: 90px;
   }
+
 }
 
 /* Responsividade para telas com altura menor que 900px */

@@ -38,7 +38,7 @@
 
 .sidebar.collapsed .app-logo img {
   width: 40px;
-  margin-left: -3px;
+  margin-left: 10px;
 }
 
 .app-name {
@@ -58,6 +58,22 @@
 }
 
 /* Itens do Menu */
+
+/* Nomes dos menus */
+.menuItem {
+  font-size: 16px;
+  font-weight: 200;
+  color: var(--sidebar-text); /* Cor do texto branca por padrão */
+  transition: color 0.3s ease;
+}
+
+/* Efeito de hover e seleção nos nomes dos menus */
+nav ul li:hover .menuItem,
+nav ul li.selected .menuItem {
+  color: var(--sidebar-bg); /* Cor do texto muda para --sidebar-bg (#314266) */
+  font-weight: 500;
+}
+
 nav ul {
   list-style: none;
   padding: 0;
@@ -73,7 +89,7 @@ nav ul li {
   position: relative;
   background-color: transparent;
   color: var(--sidebar-text);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.1s ease, color 0.1s ease;
 }
 
 .sidebar.collapsed nav ul li {
@@ -82,7 +98,7 @@ nav ul li {
 }
 
 nav ul li img {
-  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(29deg) brightness(109%) contrast(101%);
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(29deg) brightness(109%) contrast(101%);/* cor branca*/
 }
 
 /* Efeito de hover e seleção */
@@ -113,7 +129,7 @@ nav ul li.inverted-border-radius.selected::after {
   content: "";
   position: absolute;
   background-color: transparent;
-  top: 64px;
+  top: 67px;
   right: 0;
   height: 50px;
   width: 25px;
@@ -146,11 +162,12 @@ nav ul li.selected img {
   }
 
   .sidebar.collapsed {
-    width: 60px;
+    width: 90px;
   }
 
   .app-header {
     padding: 16px;
+    margin-left: 0px;
   }
 
   .app-logo img {
@@ -162,12 +179,19 @@ nav ul li.selected img {
     gap: 16px;
   }
 
-  nav span {
-    color: transparent;
-  }
-  .selected-menu, .app-name {
+  .selected-menu, .app-name, .menuItem {
     visibility: hidden;
   }
+
+  nav ul li.inverted-border-radius:hover::after,
+  nav ul li.inverted-border-radius.selected::after {
+    top:55px
+  }
+  
+  .copyright{
+    margin-top: -25px;
+  }
+
 }
 
 @media (max-width: 450px) {

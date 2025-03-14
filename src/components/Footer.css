@@ -3,7 +3,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: #02f82b; /* Cor de fundo do footer */
+  background-color: #fff; /* Cor de fundo do footer */
   padding: 10px;
   position: fixed;
   bottom: 0;
@@ -59,6 +59,8 @@
   padding: 10px;
   z-index: 1000;
   bottom: 50px; /* Abre para cima */
+  right: 0; /* Alinha à direita */
+  width: 250px; /* Largura fixa de 250px */
 }
 
 .footer-popup ul {
@@ -88,4 +90,41 @@
   height: 40px;
   border-radius: 50%;
   object-fit: cover;
+}
+
+/* Ajuste para o popup de e-mail em telas menores que 700px */
+@media (max-width: 400px) {
+  .footer-popup {
+    right: -200px; /* Desloca o popup de e-mail 160px para a direita */
+  }
+}
+
+/* Ajustes específicos para o popup de e-mail */
+#email-popup {
+  right: -120px; /* Desloca o popup de e-mail 160px para a direita */
+}
+
+/* Ajustes específicos para o popup de notificações (sino) */
+#bell-popup {
+  right: -80px; /* Mantém o posicionamento padrão */
+}
+
+/* Ajustes específicos para o popup do menu do usuário */
+#user-menu-popup {
+  right: 20px; /* Mantém o posicionamento padrão */
+  margin-bottom: 17px;
+}
+
+/* Exemplo de ajuste de espaçamento interno */
+#email-popup ul,
+#bell-popup ul,
+#user-menu-popup ul {
+  padding: 10px; /* Espaçamento interno */
+}
+
+/* Exemplo de ajuste de margem */
+#email-popup ul li,
+#bell-popup ul li,
+#user-menu-popup ul li {
+  margin-bottom: 5px; /* Espaçamento entre os itens */
 }

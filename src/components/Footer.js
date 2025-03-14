@@ -71,7 +71,7 @@ const Footer = ({ toggleTheme, isDarkTheme, notifications = { email: 0, bell: 0 
       </button>
 
       {/* Ícone de E-mail */}
-      <div className="notification-icon" onClick={handleEmailClick} ref={emailPopupRef}>
+      <div className="notification-icon email" onClick={handleEmailClick} ref={emailPopupRef}>
         <span className="icon">
           <img width="24" height="24" src="https://img.icons8.com/material-outlined/24/filled-message.png" alt="filled-message" />
         </span>
@@ -79,7 +79,7 @@ const Footer = ({ toggleTheme, isDarkTheme, notifications = { email: 0, bell: 0 
           <span className="notification-badge">{notifications.email}</span>
         )}
         {isEmailPopupOpen && (
-          <div className="notification-popup footer-popup">
+          <div id="email-popup" className="footer-popup">
             <ul>
               <li>Novo e-mail 1</li>
               <li>Novo e-mail 2</li>
@@ -89,7 +89,7 @@ const Footer = ({ toggleTheme, isDarkTheme, notifications = { email: 0, bell: 0 
       </div>
 
       {/* Ícone de Sino */}
-      <div className="notification-icon" onClick={handleBellClick} ref={bellPopupRef}>
+      <div className="notification-icon bell" onClick={handleBellClick} ref={bellPopupRef}>
         <span className="icon">
           <img width="24" height="24" src="https://img.icons8.com/sf-regular-filled/100/appointment-reminders.png" alt="appointment-reminders" />
         </span>
@@ -97,7 +97,7 @@ const Footer = ({ toggleTheme, isDarkTheme, notifications = { email: 0, bell: 0 
           <span className="notification-badge">{notifications.bell}</span>
         )}
         {isBellPopupOpen && (
-          <div className="notification-popup footer-popup">
+          <div id="bell-popup" className="footer-popup">
             <ul>
               <li>Nova notificação 1</li>
               <li>Nova notificação 2</li>
@@ -112,7 +112,7 @@ const Footer = ({ toggleTheme, isDarkTheme, notifications = { email: 0, bell: 0 
           <img src="./images/user-avatar.jpg" alt="User Avatar" />
         </div>
         {isUserMenuOpen && (
-          <div className="user-menu-popup footer-popup">
+          <div id="user-menu-popup" className="footer-popup">
             <ul>
               <li>Meu Perfil</li>
               <li>Configurações</li>
