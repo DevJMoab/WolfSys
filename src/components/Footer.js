@@ -5,6 +5,14 @@ const Footer = ({ toggleTheme, isDarkTheme, notifications = { email: 0, bell: 0 
   const [isEmailPopupOpen, setIsEmailPopupOpen] = useState(false);
   const [isBellPopupOpen, setIsBellPopupOpen] = useState(false);
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
+  const [emailNotifications, setEmailNotifications] = useState([
+    { id: 1, message: 'Novo e-mail 1', read: false },
+    { id: 2, message: 'Novo e-mail 2', read: false },
+  ]);
+  const [bellNotifications, setBellNotifications] = useState([
+    { id: 1, message: 'Nova notificação 1', read: false },
+    { id: 2, message: 'Nova notificação 2', read: false },
+  ]);
 
   // Referências para os popups
   const emailPopupRef = useRef(null);
@@ -49,6 +57,21 @@ const Footer = ({ toggleTheme, isDarkTheme, notifications = { email: 0, bell: 0 
     setIsBellPopupOpen(false); // Fecha o popup do sino se estiver aberto
   };
 
+  const handleEmailNotificationClick = (id) => {
+    setEmailNotifications(emailNotifications.map(notification =>
+      notification.id === id ? { ...notification, read: true } : notification
+    ));
+  };
+
+  const handleBellNotificationClick = (id) => {
+    setBellNotifications(bellNotifications.map(notification =>
+      notification.id === id ? { ...notification, read: true } : notification
+    ));
+  };
+
+  const unreadEmailNotificationsCount = emailNotifications.filter(notification => !notification.read).length;
+  const unreadBellNotificationsCount = bellNotifications.filter(notification => !notification.read).length;
+
   return (
     <footer className="footer">
       {/* Botão de Tema */}
@@ -75,14 +98,22 @@ const Footer = ({ toggleTheme, isDarkTheme, notifications = { email: 0, bell: 0 
         <span className="icon">
           <img width="24" height="24" src="https://img.icons8.com/material-outlined/24/filled-message.png" alt="filled-message" />
         </span>
-        {notifications.email > 0 && (
-          <span className="notification-badge">{notifications.email}</span>
+        {unreadEmailNotificationsCount > 0 && (
+          <span className="notification-badge">{unreadEmailNotificationsCount}</span>
         )}
         {isEmailPopupOpen && (
           <div id="email-popup" className="footer-popup">
             <ul>
-              <li>Novo e-mail 1</li>
-              <li>Novo e-mail 2</li>
+              {emailNotifications.map(notification => (
+                <li
+                  key={notification.id}
+                  className={`notification-item ${notification.read ? '' : 'unread'}`}
+                  onClick={() => handleEmailNotificationClick(notification.id)}
+                >
+                  {!notification.read && <div className="unread-circle"></div>}
+                  <span>{notification.message}</span>
+                </li>
+              ))}
             </ul>
           </div>
         )}
@@ -93,14 +124,22 @@ const Footer = ({ toggleTheme, isDarkTheme, notifications = { email: 0, bell: 0 
         <span className="icon">
           <img width="24" height="24" src="https://img.icons8.com/sf-regular-filled/100/appointment-reminders.png" alt="appointment-reminders" />
         </span>
-        {notifications.bell > 0 && (
-          <span className="notification-badge">{notifications.bell}</span>
+        {unreadBellNotificationsCount > 0 && (
+          <span className="notification-badge">{unreadBellNotificationsCount}</span>
         )}
         {isBellPopupOpen && (
           <div id="bell-popup" className="footer-popup">
             <ul>
-              <li>Nova notificação 1</li>
-              <li>Nova notificação 2</li>
+              {bellNotifications.map(notification => (
+                <li
+                  key={notification.id}
+                  className={`notification-item ${notification.read ? '' : 'unread'}`}
+                  onClick={() => handleBellNotificationClick(notification.id)}
+                >
+                  {!notification.read && <div className="unread-circle"></div>}
+                  <span>{notification.message}</span>
+                </li>
+              ))}
             </ul>
           </div>
         )}

@@ -72,10 +72,25 @@
 .footer-popup ul li {
   padding: 10px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.footer-popup ul li.unread {
+  background-color: #f0f0f0; /* Fundo acinzentado para notificações não lidas */
 }
 
 .footer-popup ul li:hover {
-  background-color: #f0f0f0;
+  background-color: #e0e0e0; /* Cor de hover */
+}
+
+/* Círculo vermelho para notificações não lidas */
+.unread-circle {
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  border-radius: 50%;
+  margin-right: 10px;
 }
 
 /* Menu de Usuário no Footer */
