@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom'; // Importe o Link
 import { menuItems } from './menuItems'; // Importe os itens do menu
 import './Sidebar.css';
 
@@ -32,8 +33,12 @@ const Sidebar = ({ collapsed, toggleSidebar }) => {
               className={`inverted-border-radius ${selectedItem === index ? 'selected' : ''}`}
               onClick={() => handleItemClick(index)}
             >
-              <span><img width="24" height="24" src={item.icon} alt={item.label} /></span>
-              {!collapsed && <span className="menuItem">{item.label}</span>}
+              <Link to={item.path} className="menu-link">
+                <span>
+                  <img width="24" height="24" src={item.icon} alt={item.label} />
+                </span>
+                {!collapsed && <span className="menuItem">{item.label}</span>}
+              </Link>
             </li>
           ))}
         </ul>

@@ -1,0 +1,276 @@
+*{
+    font-family: 'Poppins', sans-serif;
+}
+.orcamentos-container {
+    padding: 20px;
+}
+  
+  .filtros {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    
+  }
+  
+  .filtros select {
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+
+  .filtros button.btn-no{
+    display: flex;
+    background-color: transparent;
+    border: 1px solid #314266;
+    border-radius: 30px;
+    align-items: center;
+    justify-content: center;
+    
+  }
+
+  .filtros button.btn-no span{
+    font-size: 25px;
+    margin-right: 8px;
+    
+  }
+  
+  .filtros button {
+    padding: 8px 16px;
+    background-color: #cad6f0;
+    color: #314266;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+  }
+
+  .buttonFilter {
+    display: flex;
+    gap: 8px; /* Espaçamento entre os botões */
+    margin-bottom: 20px;
+  }
+  
+  .filtro-btn.active,
+.filtro-btn:hover {
+  background-color: #314266; /* Cor de fundo quando selecionado ou hover */
+  color: #fff; /* Cor do texto quando selecionado ou hover */
+}
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    border: none;
+  }
+
+  td:nth-child(7) {
+    text-align: center; /* Centraliza o texto horizontalmente */
+    display: flex;
+    justify-content: center; /* Centraliza o card horizontalmente */
+    align-items: center; /* Centraliza o card verticalmente */
+  }
+  
+  table th, table td {
+    background-color: transparent;
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid transparent;
+  }
+  
+  table th {
+    cursor: pointer;
+  }
+  
+  table th:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .contato-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-right: 8px;
+  }
+  
+  .status {
+    padding: 10px 20px;
+    font-size: 14px;
+    border-radius: 25px;
+  }
+  
+  .status.pendente {
+    background-color: transparent;
+    color: #aaa;
+    border:1px solid #aaa
+  }
+  
+  .status.negociando {
+    background-color: transparent;
+    color: #0d5bd1;
+    border:1px solid #0d5bd1
+  }
+  
+  .status.fechado {
+    background-color: #4caf50;
+    color: #fff;
+  }
+  
+  .rodape-tabela {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .paginacao button {
+    padding: 6px 12px;
+    margin: 0 4px;
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .paginacao button{
+    background-color: #e7e7f3;
+    border-radius: 20px;
+  }
+
+  .paginacao button.paginacao-fl{
+    background-color: #e7e7f3;
+    border-radius: 20px;
+  }
+  
+  .paginacao button:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .paginacao button.active {
+    background-color: #314266;
+    color: white;
+  }
+  
+  .formulario-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+  
+  .formulario-popup h2 {
+    margin-bottom: 20px;
+  }
+  
+  .formulario-popup input, .formulario-popup select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .botoes-formulario {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+  
+  .botoes-formulario button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .botoes-formulario button:nth-child(1) {
+    background-color: #314266;
+    color: white;
+  }
+  
+  .botoes-formulario button:nth-child(2) {
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+  }
+  
+  .botoes-formulario button:nth-child(3) {
+    background-color: #ffeb3b;
+  }
+
+.contato-icon {
+    filter: brightness(0) saturate(100%) invert(16%) sepia(23%) saturate(1233%) hue-rotate(194deg) brightness(93%) contrast(88%);
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+
+  .popup-acoes {
+    position: absolute;
+    background-color: white;
+    padding: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .fechar-popup {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #f5f5f5;
+  }
+  
+  .fechar-popup:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .popup-acoes button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #f5f5f5;
+    cursor: pointer;
+  }
+  
+  .popup-acoes button:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .acoes-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .mostrando-registros{
+    color: #6c778d;
+  }
+
+  .registros-por-pagina{
+    color: #314266;
+  }
+
+  .registros-por-pagina input{
+    color: #314266;
+    margin: 8px;
+    border-radius: 20px;
+    padding: 4px 14px;
+  }

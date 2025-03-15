@@ -58,6 +58,38 @@
 }
 
 /* Itens do Menu */
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+nav ul li {
+  padding: 12px 28px; /* Ajuste no padding */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 16px; /* Espaçamento entre ícone e texto */
+  position: relative;
+  background-color: transparent;
+  color: var(--sidebar-text);
+  transition: background-color 0.1s ease, color 0.1s ease;
+}
+
+.sidebar.collapsed nav ul li {
+  justify-content: center; /* Centraliza os ícones quando recolhido */
+  padding: 12px 0; /* Reduz o padding lateral */
+}
+
+/* Links dentro dos itens do menu */
+nav ul li a {
+  text-decoration: none; /* Remove a tarja azul */
+  color: inherit; /* Herda a cor do texto do li */
+  display: flex;
+  align-items: center;
+  gap: 16px; /* Espaçamento entre ícone e texto */
+  width: 100%; /* Garante que o link ocupe todo o espaço do li */
+}
 
 /* Nomes dos menus */
 .menuItem {
@@ -74,31 +106,10 @@ nav ul li.selected .menuItem {
   font-weight: 500;
 }
 
-nav ul {
-  list-style: none;
-  padding: 0;
-  margin: 20px 0;
-}
-
-nav ul li {
-  padding: 18px 28px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 32px;
-  position: relative;
-  background-color: transparent;
-  color: var(--sidebar-text);
-  transition: background-color 0.1s ease, color 0.1s ease;
-}
-
-.sidebar.collapsed nav ul li {
-  justify-content: center; /* Centraliza os ícones quando recolhido */
-  padding: 18px 0; /* Reduz o padding lateral */
-}
-
+/* Ícones */
 nav ul li img {
-  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(29deg) brightness(109%) contrast(101%);/* cor branca*/
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(29deg) brightness(109%) contrast(101%); /* Cor branca */
+  transition: filter 0.3s ease;
 }
 
 /* Efeito de hover e seleção */
@@ -108,6 +119,12 @@ nav ul li.selected {
   color: var(--sidebar-hover-text);
   border-radius: 25px 0 0 25px;
   margin-left: 10px;
+}
+
+/* Ajuste para os ícones ao passar o mouse ou selecionar */
+nav ul li:hover img,
+nav ul li.selected img {
+  filter: brightness(0) saturate(100%) invert(16%) sepia(23%) saturate(1233%) hue-rotate(194deg) brightness(93%) contrast(88%);
 }
 
 /* Efeito de bordas invertidas */
@@ -129,18 +146,12 @@ nav ul li.inverted-border-radius.selected::after {
   content: "";
   position: absolute;
   background-color: transparent;
-  top: 67px;
+  top: 55px;
   right: 0;
   height: 50px;
   width: 25px;
   border-top-right-radius: 25px;
   box-shadow: 0 -25px 0 0 var(--sidebar-hover-bg);
-}
-
-/* Ajuste para os ícones ao passar o mouse ou selecionar */
-nav ul li:hover img,
-nav ul li.selected img {
-  filter: brightness(0) saturate(100%) invert(16%) sepia(23%) saturate(1233%) hue-rotate(194deg) brightness(93%) contrast(88%);
 }
 
 /* Copyright */
@@ -156,6 +167,7 @@ nav ul li.selected img {
   margin: 5px 0;
 }
 
+/* Responsividade */
 @media (max-width: 768px) {
   .sidebar {
     width: 90px;
@@ -185,19 +197,19 @@ nav ul li.selected img {
 
   nav ul li.inverted-border-radius:hover::after,
   nav ul li.inverted-border-radius.selected::after {
-    top:55px
-  }
-  
-  .copyright{
-    margin-top: -25px;
+    top: 55px;
   }
 
+  .copyright {
+    margin-top: -25px;
+  }
 }
 
 @media (max-width: 450px) {
   .search-bar {
     width: calc(185px + 3vw);
   }
+
   .selected-menu, .app-name {
     visibility: hidden;
   }

@@ -1,13 +1,14 @@
 /* Layout principal */
 .app {
   display: flex;
-  height: 100vh;
+  min-height: 100vh;
+  flex-direction: column;
   overflow: hidden;
 }
 
 /* Conteúdo à direita da sidebar */
 .content {
-  flex: 1; /* Ocupa o espaço restante */
+  flex-grow: 1; 
   margin-left: 250px; /* Largura da sidebar */
   display: flex;
   flex-direction: column;
@@ -21,7 +22,7 @@
 
 /* Main Content */
 .main-content {
-  flex: 1; /* Ocupa o espaço restante */
+  flex-grow: 1;
   padding: 20px;
   background-color: #f9f9f9;
   overflow-y: auto; /* Adiciona scroll se o conteúdo for muito longo */
