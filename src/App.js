@@ -20,7 +20,7 @@ function App() {
   const [collapsed, setCollapsed] = useState(false);
   const [isDarkTheme, setIsDarkTheme] = useState(false);
   const [selectedMenu, setSelectedMenu] = useState('Dashboard');
-  const [notifications, setNotifications] = useState({ email: 2, bell: 5 });
+  const [notifications] = useState({ email: 2, bell: 5 });
 
   const { width } = useWindowSize(); // Obtém a largura da tela
 
