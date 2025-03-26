@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Importe o Router
-import Sidebar from './components/Sidebar';
-import Header from './components/Header';
-import Footer from './components/Footer';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
+import Sidebar from './components/Sidebar/Sidebar';
+import Header from './components/Header/Header';
+import Footer from './components/Footer/Footer';
 import useWindowSize from './hooks/useWindowSize';
 import Dashboard from './pages/Dashboard';
 import Orcamentos from './pages/Orcamentos';
@@ -20,16 +20,18 @@ function App() {
   const [collapsed, setCollapsed] = useState(false);
   const [isDarkTheme, setIsDarkTheme] = useState(false);
   const [selectedMenu, setSelectedMenu] = useState('Dashboard');
-  const [notifications] = useState({ email: 2, bell: 5 });
+  const [notifications] = useState({
+    email: 2,
+    bell: 5,
+    messages: 0
+  });
 
-  const { width } = useWindowSize(); // Obtém a largura da tela
+  const { width } = useWindowSize();
 
-  // Função para alternar o estado do Sidebar (recolhido/expandido)
   const toggleSidebar = () => {
     setCollapsed((prev) => !prev);
   };
 
-  // Função para alternar o tema (claro/escuro)
   const toggleTheme = () => {
     setIsDarkTheme((prev) => !prev);
   };
@@ -37,7 +39,6 @@ function App() {
   return (
     <Router>
       <div className={`app ${isDarkTheme ? 'dark' : 'light'}`}>
-        {/* Sidebar */}
         <Sidebar
           collapsed={collapsed}
           toggleSidebar={toggleSidebar}
@@ -45,22 +46,20 @@ function App() {
           setSelectedMenu={setSelectedMenu}
         />
 
-        {/* Conteúdo principal */}
         <div className="content">
-          {/* Header */}
           <Header
             selectedMenu={selectedMenu}
             toggleTheme={toggleTheme}
             isDarkTheme={isDarkTheme}
-            toggleSidebar={toggleSidebar} // Passa a função para o Header
-            isSidebarCollapsed={collapsed} // Passa o estado do Sidebar para o Header
+            toggleSidebar={toggleSidebar}
+            isSidebarCollapsed={collapsed}
             notifications={notifications}
           />
 
-          {/* Main Content */}
           <div className="main-content">
             <Routes>
-              <Route path="/" element={<Dashboard />} />
+              <Route path="/" element={<Navigate to="/dashboard" replace />} />
+              <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/orcamentos" element={<Orcamentos />} />
               <Route path="/clientes" element={<Clientes />} />
               <Route path="/projetos" element={<Projetos />} />
@@ -70,11 +69,11 @@ function App() {
               <Route path="/colaboradores" element={<Colaboradores />} />
               <Route path="/contratos" element={<Contratos />} />
               <Route path="/configuracoes" element={<Configuracoes />} />
+              <Route path="*" element={<Navigate to="/dashboard" replace />} />
             </Routes>
           </div>
         </div>
 
-        {/* Footer para telas pequenas */}
         {width <= 1000 && (
           <Footer
             toggleTheme={toggleTheme}
